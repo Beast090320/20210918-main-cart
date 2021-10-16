@@ -15,15 +15,14 @@ public class CartController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String type = req.getParameter("type");
-		RequestDispatcher rd = null; 
+		RequestDispatcher rd = null;
 		switch (type) {
-		case "1":
-			rd = req.getRequestDispatcher("/form/cart.jsp");
-			break;
-		case "2":
-			rd = req.getRequestDispatcher("/form/record.jsp");
-			break;
-
+			case "1":
+				rd = req.getRequestDispatcher("/form/cart.jsp"); 
+				break;
+			case "2":
+				rd = req.getRequestDispatcher("/form/record.jsp");
+				break;
 		}
 		if(rd != null) {
 			rd.forward(req, resp);
@@ -33,9 +32,9 @@ public class CartController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		resp.sendRedirect(getServletContext().getContextPath() + "/servlet/cart?trpe=1");
-	
+		resp.sendRedirect(getServletContext().getContextPath() + "/servlet/cart?type=1");
 	}
-
+	
+	
 	
 }

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CartDao;
+import entity.Order;
+import entity.User;
 
 @WebServlet("/servlet/cart")
 public class CartController extends HttpServlet {
@@ -20,12 +23,18 @@ public class CartController extends HttpServlet {
 		String type = req.getParameter("type");
 		type = (type == null) ? "" : type;
 		RequestDispatcher rd = null;
+		HttpSession session = req.getSession(false);
 		switch (type) {
-			case "1":
-				rd = req.getRequestDispatcher("/form/cart.jsp"); 
+			case "1": // 查看購物車
+				rd = req.getRequestDispatcher("/form/cart.jsp");
+				req.setAttribute("products", cartDao.queryProducts());
 				break;
-			case "2":
+			case "2": // 根據 user.id 查看訂單紀錄
 				rd = req.getRequestDispatcher("/form/record.jsp");
+				User user = (User)session.getAttribute("user");
+				List<Order> orders = cartDao.queryOrdersByUserId(user.getId());
+				req.setAttribute("orders", orders);
+				req.setAttribute("products", cartDao.queryProducts());
 				break;
 			default:
 				rd = req.getRequestDispatcher("/form/index.jsp");
@@ -35,20 +44,14 @@ public class CartController extends HttpServlet {
 			rd.forward(req, resp);
 		}
 	}
-	//加入到購物車
+
+	// 加入到購物車
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
+		// 因為已經有 session user 物件, 所以不需要再判斷是否表單有傳 user id
 		String[] data = req.getParameterValues("data");
-		if(id == null) {
-			resp.sendRedirect(getServletContext().getContextPath() + "/servlet/cart?");
-			
-			return;
-		}
-		Integer userId = Integer.parseInt(id);
 		// 將資料存入到 Session 中 (購物車)
 		HttpSession session = req.getSession();
-		session.setAttribute("userid", userId);
 		session.setAttribute("data", data);
 		resp.sendRedirect(getServletContext().getContextPath() + "/servlet/cart?type=1");
 	}

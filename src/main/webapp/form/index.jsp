@@ -15,7 +15,7 @@
 	<form class="pure-form" method="post" action="${pageContext.request.contextPath}/servlet/cart">
 		<fieldset>
 			<legend>10元商店-請選擇禮品</legend>
-			編號: <input type="text" name="id" value=""><p />
+			編號: <input type="text" name="id" value="${ user.id }" readonly><p />
 			禮品: 
 				<c:forEach var="p" items="${ products }">  
 					<input type="checkbox" name="data" value="${ p.id }"> ${ p.name }
@@ -27,7 +27,10 @@
 					class="pure-button pure-button-primary">查詢購物車</button>
 			<button type="button" 
 					onclick="location.href='${pageContext.request.contextPath}/servlet/cart?type=2'"
-					class="pure-button pure-button-primary">查詢訂單紀錄</button>		
+					class="pure-button pure-button-primary">查詢訂單紀錄</button>
+								<button type="button" 
+					onclick="location.href='${pageContext.request.contextPath}/logout'"
+					class="pure-button pure-button-primary">登出</button>			
 		</fieldset>
 	</form>
 	

@@ -4,39 +4,38 @@ import java.util.Date;
 
 public class Order {
 	private Integer id; // 訂單編號
-	private Integer userid;// 訂貨人 id
-	private Integer productid;// 商品 id
-	private Date ts;// 下單時間
-	
+	private Integer userId; // 訂貨人 id
+	private Integer productId; // 商品 id
+	private Date ts; // 下單時間
 	
 	public Order() {
 		
 	}
 	
-	public Order(Integer id, Integer userid, Integer productid) {
-		super();
+	public Order(Integer id, Integer userId, Integer productId) {
 		this.id = id;
-		this.userid = userid;
-		this.productid = productid;
+		this.userId = userId;
+		this.productId = productId;
 		this.ts = new Date();
 	}
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getUserid() {
-		return userid;
+	public Integer getUserId() {
+		return userId;
 	}
-	public void setUserid(Integer userid) {
-		this.userid = userid;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
-	public Integer getProductid() {
-		return productid;
+	public Integer getProductId() {
+		return productId;
 	}
-	public void setProductid(Integer productid) {
-		this.productid = productid;
+	public void setProductId(Integer productId) {
+		this.productId = productId;
 	}
 	public Date getTs() {
 		return ts;
@@ -44,6 +43,5 @@ public class Order {
 	public void setTs(Date ts) {
 		this.ts = ts;
 	}
-	
 	
 }

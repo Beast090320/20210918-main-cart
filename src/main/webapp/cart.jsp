@@ -7,6 +7,8 @@
 <title>10元商店-購物車</title>
 </head>
 <body>
+<body style="padding: 15px">
+	
 	<form class="pure-form" method="post"
 		action="${pageContext.request.contextPath}/servlet/cart">
 		<fieldset>

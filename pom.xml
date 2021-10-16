@@ -2,12 +2,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>JavaWeb20210918</groupId>
-	<artifactId>JavaWeb20210918</artifactId>
+	<groupId>JavaWeb20210918_cart</groupId>
+	<artifactId>JavaWeb20210918_cart</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>JavaWeb20210918</name>
-	<description>JavaWeb20210918</description>
+	<name>JavaWeb20210918_cart</name>
+	<description>JavaWeb20210918_cart</description>
 
 	<dependencies>
 

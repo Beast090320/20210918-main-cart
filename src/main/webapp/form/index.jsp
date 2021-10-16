@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +16,10 @@
 		<fieldset>
 			<legend>10元商店-請選擇禮品</legend>
 			編號: <input type="text" name="id" value=""><p />
-			禮品:  
-				<input type="checkbox" name="data" value="書本"> 書本 
-				<input type="checkbox" name="data" value="鉛筆"> 鉛筆 
-				<input type="checkbox" name="data" value="墊板"> 墊板 
-				<input type="checkbox" name="data" value="橡皮"> 橡皮
-				<input type="checkbox" name="data" value="彈珠"> 彈珠
+			禮品: 
+				<c:forEach var="p" items="${ products }">  
+					<input type="checkbox" name="data" value="${ p.id }"> ${ p.name }
+				</c:forEach>
 			<p />
 			<button type="submit" class="pure-button pure-button-primary">加入購物車</button>
 			<button type="button" 

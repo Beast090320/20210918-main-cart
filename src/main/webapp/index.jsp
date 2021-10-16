@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
 	<form class="pure-form" method="post" action="${pageContext.request.contextPath}/servlet/cart">
 		<fieldset>
 			<legend>10元商店-請選擇禮品</legend>
-			編號<input type="test" name= "id" value=""><p />
+			編號<input type="text" name= "id" value=""><p />
 			禮品: 
 				<input type="checkbox" name="data" value="書本"> 書本 
 				<input type="checkbox" name="data" value="鉛筆"> 鉛筆 

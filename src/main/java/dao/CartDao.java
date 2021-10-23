@@ -16,7 +16,7 @@ public class CartDao {
 		orders = new ArrayList<>();
 		products = new ArrayList<>();
 		products.add(new Product(1, "鉛筆", 10, 10));
-		products.add(new Product(2, "橡皮", 20, 10));
+		products.add(new Product(2, "橡皮", 10, 20));
 		products.add(new Product(3, "墊板", 30, 20));
 		products.add(new Product(4, "圓規", 40, 30));
 		products.add(new Product(5, "彈珠", 50, 10));

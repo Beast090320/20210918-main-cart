@@ -14,4 +14,7 @@
 -- SELECT (price * qty) as subtotal FROM products;
 -- SELECT SUM(price * qty) as total FROM products;
 -- SELECT id, name, price, qty, ts FROM products;
-SELECT price,(price * qty) as 'subtotal' FROM product; 
+-- SELECT price, SUM(price * qty) as 'subtotal' FROM products GROUP BY price ORDER BY subtotal DESC;
+-- SELECT price, SUM(price * qty) as 'subtotal' FROM products GROUP BY price ORDER BY subtotal DESC limt 1;
+
+SELECT * FROM products_group; -- 執行前請先建立view (執行 create_view.sql)

@@ -14,18 +14,16 @@ import javax.servlet.http.HttpSession;
 import dao.UserDao;
 import entity.User;
 
-@WebFilter(value = { "/logout" })
+@WebFilter(value = {"/logout"})
 public class LogoutFilter extends HttpFilter {
-	private UserDao userDao = new UserDao();
-
 	@Override
 	protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
-
-		HttpSession session = req.getSession();
+		HttpSession session = req.getSession(false);
 		session.invalidate();
-		RequestDispatcher rd = req.getRequestDispatcher("/form/login.jsp");
-		rd.forward(req, res);
+		//RequestDispatcher rd = req.getRequestDispatcher("/form/login.jsp");
+		//rd.forward(req, res);
+		res.sendRedirect(getServletContext().getContextPath() + "/servlet/cart");
 	}
-
+	
 }
